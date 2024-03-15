@@ -13,8 +13,9 @@ namespace ConsoleApp6
             Random random = new Random();
             int sizeArray = 30;
             int[] numbers = new int[sizeArray];
-            int countRepetitionNumber = 0; 
+            int countRepetitionNumber = 1; 
             int maxNumberReapit = 0;
+            int numberReapit = 0;
             int minValue = 0;
             int maxValue = 10;
 
@@ -29,13 +30,20 @@ namespace ConsoleApp6
                 if (numbers[i] == numbers[i - 1])
                 {
                     countRepetitionNumber++;
-
-                    maxNumberReapit = numbers[i];
+                }
+                else
+                {
+                    countRepetitionNumber = 1;
                 }
 
+                if (countRepetitionNumber > maxNumberReapit)
+                {
+                    maxNumberReapit = countRepetitionNumber;
+                    numberReapit = numbers[i];
+                }
             }
 
-            Console.WriteLine($"\nколичество повторений: {countRepetitionNumber} числа: {maxNumberReapit}");
+            Console.WriteLine($"\nколичество повторений: {maxNumberReapit} числа: {numberReapit}");
         } 
     }
 }
